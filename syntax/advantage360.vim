@@ -12,7 +12,7 @@ syn match advComment		"*.*" contains=@Spell
 syn match advLocationMap	">"
 syn match advMacroMap		">"
 
-syn match advLayer    "\<(base|keypad|function[1-3])\>"
+syn match advLayerKey    "\(base\|keypad\|function\[123\]\)"
 
 syn match advLocationChar	"\[\@<=\%(kp-\)\?[a-z0-9\\',./;`=]\]\@=" contained
 syn match advLocationCode	"\[\@<=\(0\{1,2}[1-9]\|0\?[1-9][0-9]\?\|1[0-589][0-9]\|16[0-4]\|17[6-9]\|2[013-9][0-9]\|22[014-9]\)\]\@=" contained
@@ -38,6 +38,7 @@ syn match advModifier		"\<\%(t&h[1-9][0-9]\{0,2}\|hyper\|meh\)\>" contained
 syn region advRemap		matchgroup=advBrack nextgroup=advLocationMap start="\[" end="\]" contains=advLocationChar,advLocationCode,advLocationToken,advModifier oneline
 syn region advMacro		matchgroup=advBrace nextgroup=advMacroMap start="{" end="}" contains=advMacroChar,advLocationToken,advModifier,advDelay,advSpeed oneline
 syn region advMacroModifier	matchgroup=advBrace nextgroup=advMacroMap start="{\%([+-]\)" end="}" contains=advModifier
+syn region advLayer oneline start=/^\</ end=/\>$/ contains=advLayerKey
 
 hi def link advComment Comment
 hi def link advLayer Type

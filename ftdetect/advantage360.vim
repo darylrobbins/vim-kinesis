@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead layout[1-9].txt set filetype=advantage360
+autocmd BufNewFile,BufRead layout[123456789].txt set filetype=advantage360
